@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseDatabase firebaseDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,31 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void irAdmin(View view){
-        Intent intent = new Intent(MainActivity.this,MainActivityAdmin.class);
+    public void irAdmin(View view) {
+        Intent intent = new Intent(MainActivity.this, MainActivityAdmin.class);
         startActivity(intent);
-
-    }
-
-    public void guardarJugador(View view){
-
-        DatabaseReference ref = firebaseDatabase.getReference();
-        DatabaseReference refJugador = ref.child("jugador");
-
-        EditText editTextEquipo = findViewById(R.id.equipoName);
-        EditText editTextNombre = findViewById(R.id.jugadorName);
-        EditText editTextApellido = findViewById(R.id.jugadorApellido);
-        EditText editTextHito = findViewById(R.id.jugadorHito);
-
-        Jugador jugador = new Jugador();
-
-        jugador.setEquipo(editTextEquipo.getText().toString());
-        jugador.setNombreJugador(editTextNombre.getText().toString());
-        jugador.setApellidoJugador(editTextApellido.getText().toString());
-        jugador.setHito(editTextHito.getText().toString());
-
-        Toast.makeText(MainActivity.this, "Usuario Registrado Correctamente", Toast.LENGTH_SHORT).show();
-
 
     }
 }

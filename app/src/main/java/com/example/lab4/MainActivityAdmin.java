@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -41,7 +42,17 @@ public class MainActivityAdmin extends AppCompatActivity {
         jugador.setApellidoJugador(editTextApellido.getText().toString());
         jugador.setHito(editTextHito.getText().toString());
 
-        Toast.makeText( MainActivityAdmin.this, "Usuario Registrado Correctamente", Toast.LENGTH_SHORT).show();
+        ref.child("users").push().setValue(jugador);
+
+
+        ref.setValue(jugador)
+                .addOnSuccessListener(aVoid ->{
+                    Log.d("msg","Data guardada exitosamente");
+                })
+                .addOnFailureListener(e -> {
+                    Log.d("msg",e.getMessage());
+                });
+
 
 
     }

@@ -17,6 +17,12 @@
             android:name=".MainActivityAdmin"
             android:exported="false" />
         <activity
+            android:name=".LineupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -17,6 +17,9 @@
             android:name=".MainActivityAdmin"
             android:exported="false" />
         <activity
+            android:name=".HitosActivity"
+            android:exported="false" />
+        <activity
             android:name=".LineupActivity"
             android:exported="false" />
         <activity

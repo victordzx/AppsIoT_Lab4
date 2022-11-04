@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void guardarJugador(View view){
+
         DatabaseReference ref = firebaseDatabase.getReference();
-        DatabaseReference refPersonas = ref.child("personas");
+        DatabaseReference refJugador = ref.child("jugador");
 
         EditText editTextEquipo = findViewById(R.id.equipoName);
         EditText editTextNombre = findViewById(R.id.jugadorName);
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         jugador.setNombreJugador(editTextNombre.getText().toString());
         jugador.setApellidoJugador(editTextApellido.getText().toString());
         jugador.setHito(editTextHito.getText().toString());
+
+        Toast.makeText(MainActivity.this, "Usuario Registrado Correctamente", Toast.LENGTH_SHORT).show();
 
 
     }

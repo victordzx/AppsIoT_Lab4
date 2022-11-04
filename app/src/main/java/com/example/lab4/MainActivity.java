@@ -1,8 +1,14 @@
 package com.example.lab4;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
         EditText editTextApellido = findViewById(R.id.jugadorApellido);
         EditText editTextHito = findViewById(R.id.jugadorHito);
 
-        Jugador jugador = new jugador();
+        Jugador jugador = new Jugador();
 
         jugador.setEquipo(editTextEquipo.getText().toString());
-        jugador.setNombre(editTextNombre.getText().toString());
-        jugador.setApellido(editTextApellido.getText().toString());
+        jugador.setNombreJugador(editTextNombre.getText().toString());
+        jugador.setApellidoJugador(editTextApellido.getText().toString());
         jugador.setHito(editTextHito.getText().toString());
 
 

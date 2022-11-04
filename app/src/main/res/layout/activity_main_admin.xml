@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ApellidoJugador" />
 
     <EditText
-        android:id="@+id/equiponame"
+        android:id="@+id/equipoName"
         android:layout_width="159dp"
         android:layout_height="41dp"
         android:layout_marginEnd="36dp"
@@ -60,7 +60,7 @@
         app:layout_constraintVertical_bias="0.346" />
 
     <EditText
-        android:id="@+id/jugadorname"
+        android:id="@+id/jugadorName"
         android:layout_width="158dp"
         android:layout_height="42dp"
         android:layout_marginEnd="32dp"
@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="0.615" />
 
     <EditText
-        android:id="@+id/jugadoapellido"
+        android:id="@+id/jugadorApellido"
         android:layout_width="159dp"
         android:layout_height="41dp"
         android:layout_marginEnd="28dp"
@@ -84,7 +84,7 @@
         app:layout_constraintVertical_bias="0.576" />
 
     <EditText
-        android:id="@+id/hitoname"
+        android:id="@+id/jugadorHito"
         android:layout_width="163dp"
         android:layout_height="43dp"
         android:layout_marginEnd="24dp"

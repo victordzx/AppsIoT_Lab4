@@ -1,6 +1,6 @@
 package com.example.lab4;
 
-public class Jugador {
+public class Hito {
 
     String equipo;
     String nombreJugador;

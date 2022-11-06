@@ -6,62 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".UserActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="180dp"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnLineups"
         android:layout_width="158dp"
         android:layout_height="63dp"
         android:layout_marginBottom="411dp"
+        android:onClick="listLineups"
         android:text="Alineación"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnHitos"
         android:layout_width="153dp"
         android:layout_height="61dp"
         android:layout_marginBottom="318dp"
+        android:onClick="listHitos"
         android:text="Hitos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLineups" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="384dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="190dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Lab4 IoT"
+        android:id="@+id/tvUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="TextView"
+        android:textSize="16sp"
+        android:visibility="gone"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        android:typeface="serif"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

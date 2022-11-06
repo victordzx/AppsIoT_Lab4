@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -27,25 +26,24 @@ public class MainActivityAdmin extends AppCompatActivity {
 
     public void guardarJugador(View view){
 
-        DatabaseReference ref = firebaseDatabase.getReference();
-        DatabaseReference refJugador = ref.child("jugador");
+        DatabaseReference ref = firebaseDatabase.getReference().child("jugador");
 
         EditText editTextEquipo = findViewById(R.id.equipoName);
         EditText editTextNombre = findViewById(R.id.jugadorName);
         EditText editTextApellido = findViewById(R.id.jugadorApellido);
         EditText editTextHito = findViewById(R.id.jugadorHito);
 
-        Jugador jugador = new Jugador();
+        Hito hito = new Hito();
 
-        jugador.setEquipo(editTextEquipo.getText().toString());
-        jugador.setNombreJugador(editTextNombre.getText().toString());
-        jugador.setApellidoJugador(editTextApellido.getText().toString());
-        jugador.setHito(editTextHito.getText().toString());
+        hito.setEquipo(editTextEquipo.getText().toString());
+        hito.setNombreJugador(editTextNombre.getText().toString());
+        hito.setApellidoJugador(editTextApellido.getText().toString());
+        hito.setHito(editTextHito.getText().toString());
 
-        ref.child("users").push().setValue(jugador);
+        ref.child("users").push().setValue(hito);
 
 
-        ref.setValue(jugador)
+        ref.setValue(hito)
                 .addOnSuccessListener(aVoid ->{
                     Log.d("msg","Data guardada exitosamente");
                 })

@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
     public void irAdmin(View view) {
         Intent intent = new Intent(MainActivity.this, MainActivityAdmin.class);
         startActivity(intent);
+    }
 
+    public void irUser(View view) {
+        Intent intent = new Intent(MainActivity.this, UserActivity.class);
+        startActivity(intent);
     }
 }

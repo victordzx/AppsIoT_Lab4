@@ -45,10 +45,11 @@ public class MainActivityAdmin extends AppCompatActivity {
         hito.setApellidoJugador(editTextApellido.getText().toString());
         hito.setHito(editTextHito.getText().toString());
 
-        ref.child("users").push().setValue(hito);
+        DatabaseReference ref2 = ref;
+        //ref2.push().setValue(hito);
 
 
-        ref.setValue(hito)
+        ref2.push().setValue(hito)
                 .addOnSuccessListener(aVoid ->{
                     Log.d("msg","Data guardada exitosamente");
                 })

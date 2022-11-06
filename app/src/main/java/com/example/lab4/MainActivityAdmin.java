@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivityAdmin extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,13 +26,17 @@ public class MainActivityAdmin extends AppCompatActivity {
     }
 
     public void guardarJugador(View view){
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference ref = firebaseDatabase.getReference().child("users");
+        System.out.println("Probando");
 
-        DatabaseReference ref = firebaseDatabase.getReference().child("jugador");
 
         EditText editTextEquipo = findViewById(R.id.equipoName);
         EditText editTextNombre = findViewById(R.id.jugadorName);
         EditText editTextApellido = findViewById(R.id.jugadorApellido);
         EditText editTextHito = findViewById(R.id.jugadorHito);
+
+        System.out.println("Probando2");
 
         Hito hito = new Hito();
 

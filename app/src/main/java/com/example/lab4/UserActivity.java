@@ -62,6 +62,4 @@ public class UserActivity extends AppCompatActivity {
         intent.putExtra("equipoB", equipob);
         startActivity(intent);
     }
-
-
 }

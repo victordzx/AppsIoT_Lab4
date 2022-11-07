@@ -85,12 +85,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*public void irUser(View view) {
+    public void irUser(View view) {
         Intent intent = new Intent(MainActivity.this, UserActivity.class);
         startActivity(intent);
     }
 
-     */
+
 
 
 

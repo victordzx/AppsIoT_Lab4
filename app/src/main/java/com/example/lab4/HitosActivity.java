@@ -13,11 +13,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.example.lab4.Adaptadores.HitoAdapter;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class HitosActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     boolean firstTime = true;
+    DatabaseReference ref;
+    ArrayList<Hito> listaHito = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,20 +29,27 @@ public class HitosActivity extends AppCompatActivity {
         setTitle("Hitos");
         setContentView(R.layout.activity_hitos);
 
-        ArrayList<Hito> listaHito = new ArrayList<>();
-
         RecyclerView recyclerView1 = findViewById(R.id.recycleView_Hitos1);
-        HitoAdapter hitoAdapter1 = new HitoAdapter(listaHito);
-        recyclerView1.setAdapter(hitoAdapter1);
         recyclerView1.setLayoutManager(new LinearLayoutManager(HitosActivity.this));
-
         RecyclerView recyclerView2 = findViewById(R.id.recycleView_Hitos2);
-        HitoAdapter hitoAdapter2 = new HitoAdapter(listaHito);
-        recyclerView2.setAdapter(hitoAdapter2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(HitosActivity.this));
 
+        HitoAdapter hitoAdapter1 = new HitoAdapter();
+        hitoAdapter1.setContext(HitosActivity.this);
+        HitoAdapter hitoAdapter2 = new HitoAdapter();
+        hitoAdapter2.setContext(HitosActivity.this);
+
         firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference ref = firebaseDatabase.getReference().child("hitos");
+        ref = firebaseDatabase.getReference();
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
 
         ref.addChildEventListener(new ChildEventListener() {
             @Override
@@ -48,7 +59,9 @@ public class HitosActivity extends AppCompatActivity {
                 }
                 Hito hito = snapshot.getValue(Hito.class);
                 listaHito.add(hito);
+                hitoAdapter1.setListaHito(listaHito);
                 hitoAdapter1.notifyItemInserted(listaHito.size()-1);
+                hitoAdapter2.setListaHito(listaHito);
                 hitoAdapter2.notifyItemInserted(listaHito.size()-1);
             }
 

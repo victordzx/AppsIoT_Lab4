@@ -28,41 +28,39 @@ public class HitoAdapter extends RecyclerView.Adapter<HitoAdapter.ViewHolder> {
         this.listaHito = listaHito;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        public View view;
-
-        public ViewHolder(View view) {
-            super(view);
-        }
-    }
-
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).
+    public HitoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.item_hitos,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HitoAdapter.ViewHolder holder, int position) {
         Hito hito = listaHito.get(position);
-
-        TextView textEquipo = holder.view.findViewById(R.id.textEquipo);
-        TextView textPlayer = holder.view.findViewById(R.id.textPlayer);
-        TextView textHito = holder.view.findViewById(R.id.textHito);
 
         String mostrarTeam= "Equipo: "+ hito.getEquipo();
         String mostrarPlayer= "Jugador: "+ hito.getNombreJugador() + " " + hito.getApellidoJugador();
         String mostrarHito= "Hito: "+ hito.getHito();
 
-        textEquipo.setText(mostrarTeam);
-        textPlayer.setText(mostrarPlayer);
-        textHito.setText(mostrarHito);
+        holder.equipo.setText(mostrarTeam);
+        holder.jugador.setText(mostrarPlayer);
+        holder.hito.setText(mostrarHito);
     }
 
     @Override
     public int getItemCount() {
         return listaHito.size();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+        TextView equipo, jugador, hito;
+        public ViewHolder(@NonNull View view) {
+            super(view);
+            equipo = view.findViewById(R.id.textEquipo);
+            jugador = view.findViewById(R.id.textPlayer);
+            hito = view.findViewById(R.id.textHito);
+        }
     }
 }

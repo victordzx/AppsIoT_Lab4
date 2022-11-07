@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.data.model.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -35,18 +36,11 @@ public class UserActivity extends AppCompatActivity {
         btnHitos = findViewById(R.id.btnHitos);
         tvMsg = findViewById(R.id.tvUser);
 
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase.getReference("equipo").get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+        btnHitos.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSuccess(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.getChildrenCount()<2){
-                    tvMsg.setText("Información aún no disponible.");
-                    tvMsg.setVisibility(View.VISIBLE);
-                }else{
-                    Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
-                    equipoa = Objects.requireNonNull(iterator.next().getValue()).toString();
-                    equipob = Objects.requireNonNull(iterator.next().getValue()).toString();
-                }
+            public void onClick(View view) {
+                startActivity(new Intent(UserActivity.this, HitosActivity.class));
+                finish();
             }
         });
     }
@@ -58,8 +52,6 @@ public class UserActivity extends AppCompatActivity {
 
     public void listLineups(View view){
         Intent intent = new Intent(UserActivity.this, LineupTeam.class);
-        intent.putExtra("equipoA", equipoa);
-        intent.putExtra("equipoB", equipob);
         startActivity(intent);
     }
 }

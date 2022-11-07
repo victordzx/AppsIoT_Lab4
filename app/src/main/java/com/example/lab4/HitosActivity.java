@@ -29,63 +29,32 @@ public class HitosActivity extends AppCompatActivity {
         setTitle("Hitos");
         setContentView(R.layout.activity_hitos);
 
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        ref = firebaseDatabase.getReference("users");
+
         RecyclerView recyclerView1 = findViewById(R.id.recycleView_Hitos1);
         recyclerView1.setLayoutManager(new LinearLayoutManager(HitosActivity.this));
         RecyclerView recyclerView2 = findViewById(R.id.recycleView_Hitos2);
         recyclerView2.setLayoutManager(new LinearLayoutManager(HitosActivity.this));
 
         HitoAdapter hitoAdapter1 = new HitoAdapter();
-        hitoAdapter1.setContext(HitosActivity.this);
+        hitoAdapter1.setListaHito(listaHito);
         HitoAdapter hitoAdapter2 = new HitoAdapter();
-        hitoAdapter2.setContext(HitosActivity.this);
-
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        ref = firebaseDatabase.getReference();
+        hitoAdapter2.setListaHito(listaHito);
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-
-        ref.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                if (firstTime){
-                    firstTime =false;
+                for(DataSnapshot dataSnapshot : snapshot.getChildren())
+                {
+                    Hito hito = dataSnapshot.getValue(Hito.class);
+                    listaHito.add(hito);
                 }
-                Hito hito = snapshot.getValue(Hito.class);
-                listaHito.add(hito);
-                hitoAdapter1.setListaHito(listaHito);
-                hitoAdapter1.notifyItemInserted(listaHito.size()-1);
-                hitoAdapter2.setListaHito(listaHito);
-                hitoAdapter2.notifyItemInserted(listaHito.size()-1);
             }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
-
     }
 
 }

@@ -41,7 +41,7 @@ public class HitoAdapter extends RecyclerView.Adapter<HitoAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.item_hitos,parent,false);
+                inflate(R.layout.activity_hitos,parent,false);
         return new ViewHolder(view);
     }
 

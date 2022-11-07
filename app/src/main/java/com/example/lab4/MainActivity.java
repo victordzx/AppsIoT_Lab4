@@ -1,3 +1,4 @@
+
 package com.example.lab4;
 
 import androidx.activity.result.ActivityResult;
@@ -9,12 +10,14 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 
+
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         firebaseDatabase = FirebaseDatabase.getInstance();
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -44,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent fbIntent = AuthUI.getInstance()
                         .createSignInIntentBuilder()
                         .setAvailableProviders(Arrays.asList(
@@ -53,16 +58,19 @@ public class MainActivity extends AppCompatActivity {
                         .build();
                 signInLauncher.launch(fbIntent);
 
+
             }
         });
 
     }
+
 
     private ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
             new FirebaseAuthUIActivityResultContract(), result -> {
                 onSignInOnResult(result);
 
             });
+
     private void onSignInOnResult(FirebaseAuthUIAuthenticationResult result){
         IdpResponse idpResponse = result.getIdpResponse();
         if(result.getResultCode() == RESULT_OK){
@@ -77,10 +85,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void irUser(View view) {
+    /*public void irUser(View view) {
         Intent intent = new Intent(MainActivity.this, UserActivity.class);
         startActivity(intent);
     }
+
+     */
+
+
 
 
 }

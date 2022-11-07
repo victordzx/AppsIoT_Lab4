@@ -107,4 +107,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.868" />
 
+    <Button
+        android:id="@+id/btn_volvermain"
+        android:layout_width="106dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:onClick="abrirMain"
+        android:text="Volver"
+        app:layout_constraintEnd_toEndOf="@+id/btnGuardar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btnGuardar"
+        app:layout_constraintTop_toBottomOf="@+id/btnGuardar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

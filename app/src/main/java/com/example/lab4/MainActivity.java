@@ -67,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
         IdpResponse idpResponse = result.getIdpResponse();
         if(result.getResultCode() == RESULT_OK){
             Log.d("msg-fb",idpResponse.getEmail());
+            Intent intent = new Intent(MainActivity.this,MainActivityAdmin.class);
+            startActivity(intent);
+            finish();
         }else{
             Log.d("msg-fb","Error al loguearse");
         }

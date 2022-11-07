@@ -51,16 +51,17 @@ public class UserActivity extends AppCompatActivity {
         });
     }
 
-    public void listHitos(View view){
-        Intent intent = new Intent(UserActivity.this,HitosActivity.class);
+    public void listHitos(View view) {
+        Intent intent = new Intent(UserActivity.this, HitosActivity.class);
         startActivity(intent);
     }
 
     public void listLineups(View view){
-        Intent intent = new Intent(UserActivity.this,LineupTeam.class);
-        intent.putExtra("equipoA",equipoa);
-        intent.putExtra("equipoB",equipob);
+        Intent intent = new Intent(UserActivity.this, LineupTeam.class);
+        intent.putExtra("equipoA", equipoa);
+        intent.putExtra("equipoB", equipob);
         startActivity(intent);
     }
+
 
 }

@@ -20,7 +20,7 @@ public class LineupAdapter extends RecyclerView.Adapter<LineupAdapter.ViewHolder
 
         public ViewHolder(View view){
             super(view);
-            textView = (TextView) view.findViewById(R.id.textView_nameJugador);
+            textView = (TextView) view.findViewById(R.id.textPlayer);
         }
         public TextView getTextView(){
             return getTextView();
@@ -36,7 +36,7 @@ public class LineupAdapter extends RecyclerView.Adapter<LineupAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.item_lineups,parent,false);
+                inflate(R.layout.item_hitos,parent,false);
         return new ViewHolder(view);
     }
 

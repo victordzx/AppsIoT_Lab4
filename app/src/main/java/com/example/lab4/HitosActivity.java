@@ -27,10 +27,15 @@ public class HitosActivity extends AppCompatActivity {
 
         ArrayList<Hito> listaHito = new ArrayList<>();
 
-        RecyclerView recyclerView = findViewById(R.id.recycleView_Hitos);
-        HitoAdapter hitoAdapter = new HitoAdapter(listaHito);
-        recyclerView.setAdapter(hitoAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(HitosActivity.this));
+        RecyclerView recyclerView1 = findViewById(R.id.recycleView_Hitos1);
+        HitoAdapter hitoAdapter1 = new HitoAdapter(listaHito);
+        recyclerView1.setAdapter(hitoAdapter1);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(HitosActivity.this));
+
+        RecyclerView recyclerView2 = findViewById(R.id.recycleView_Hitos2);
+        HitoAdapter hitoAdapter2 = new HitoAdapter(listaHito);
+        recyclerView2.setAdapter(hitoAdapter2);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(HitosActivity.this));
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference ref = firebaseDatabase.getReference().child("hitos");
@@ -43,7 +48,8 @@ public class HitosActivity extends AppCompatActivity {
                 }
                 Hito hito = snapshot.getValue(Hito.class);
                 listaHito.add(hito);
-                hitoAdapter.notifyItemInserted(listaHito.size()-1);
+                hitoAdapter1.notifyItemInserted(listaHito.size()-1);
+                hitoAdapter2.notifyItemInserted(listaHito.size()-1);
             }
 
             @Override

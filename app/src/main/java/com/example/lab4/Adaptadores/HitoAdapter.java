@@ -23,7 +23,7 @@ public class HitoAdapter extends RecyclerView.Adapter<HitoAdapter.ViewHolder> {
 
         public ViewHolder(View view){
             super(view);
-            textEquipo = (TextView) view.findViewById(R.id.textTeam);
+            textEquipo = (TextView) view.findViewById(R.id.textEquipo);
             textPlayer = (TextView) view.findViewById(R.id.textPlayer);
             textHito = (TextView) view.findViewById(R.id.textHito);
         }
@@ -52,7 +52,7 @@ public class HitoAdapter extends RecyclerView.Adapter<HitoAdapter.ViewHolder> {
         String mostrarPlayer= "Jugador: "+ hito.getNombreJugador() + " " + hito.getApellidoJugador();
         String mostrarHito= "Hito: "+ hito.getHito();
 
-        TextView textShowTeam = holder.itemView.findViewById(R.id.textTeam);
+        TextView textShowTeam = holder.itemView.findViewById(R.id.textEquipo);
         TextView textShowPlayer = holder.itemView.findViewById(R.id.textPlayer);
         TextView textShowHito = holder.itemView.findViewById(R.id.textHito);
         textShowTeam.setText(mostrarTeam);

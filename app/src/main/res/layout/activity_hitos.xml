@@ -8,7 +8,7 @@
     tools:context=".HitosActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleView1"
+        android:id="@+id/recycleView_Hitos1"
         android:layout_width="0dp"
         android:layout_height="260dp"
         android:layout_marginStart="24dp"
@@ -32,8 +32,8 @@
         android:textColorHighlight="#E91E63"
         android:textColorLink="#803232"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/recycleView1"
-        app:layout_constraintStart_toStartOf="@+id/recycleView1"
+        app:layout_constraintEnd_toEndOf="@+id/recycleView_Hitos1"
+        app:layout_constraintStart_toStartOf="@+id/recycleView_Hitos1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -46,11 +46,11 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/recycleView2"
-        app:layout_constraintStart_toStartOf="@+id/recycleView2" />
+        app:layout_constraintEnd_toEndOf="@+id/recycleView_Hitos2"
+        app:layout_constraintStart_toStartOf="@+id/recycleView_Hitos2" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleView2"
+        android:id="@+id/recycleView_Hitos2"
         android:layout_width="0dp"
         android:layout_height="260dp"
         android:layout_marginStart="24dp"
